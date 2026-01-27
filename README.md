@@ -29,12 +29,13 @@ Implemented simple producer/consumer code to understand kafka.
 - `max.poll.interval.ms` : the maximum delay between invocations of `poll()` before the consumer is considered failed.
 
 ### Usefull commands :
+- `kafka-console-consumer` is the "executable" script (.sh) located inside the Kafka container (by default). It acts as consumer temporarily to fetch the messages. Similary we have `kafka-topics.sh` and `kafka-console-producer.sh`.
 - see the list of topics in docker,   
-`docker exec -it kafka kafka-topics --list --bootstrap-server localhost:9092`
-- see the details of topic 'orders' in docker, 
-  `docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic orders --from-beginning`
-- see the metadata of topic 'orders' in docker, 
-  `docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --describe --topic orders`
-
-
+`docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --list`
+- see the details of topic 'orders' in docker,                                                                  
+`docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 --topic orders --from-beginning`
+- create a topic,
+`docker exec -it kafka kafka-topics --bootstrap-server kafka:9092   --create   --topic wallet.events   --partitions 1  --replication-factor 1` 
+- see the metadata of topic 'orders' in docker,                                                 
+`docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --describe --topic orders`
 
