@@ -6,7 +6,9 @@ consumer_config = {
     'group.id': 'order-tracker-group',
     # if there 3 instances of tracker, they all have same group id
     'auto.offset.reset': 'earliest'
-    # if it don't know where we left off, start reading messages from the beginning of the topic    
+    # if it don't know where we left off, start reading messages from the beginning of the topic  
+    #"enable.auto.commit": False # **** use this if you don't want to auto commit 
+    
 }
 
 
